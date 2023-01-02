@@ -1,0 +1,49 @@
+<%- include ('partials/header.ejs'); %>
+
+<body>
+    <div class="container">
+        <% if(msg){ %>
+            <div class="alert alert-success" role="alert">
+                <%= msg %>
+            </div>
+        <% } %>
+
+        <hr>
+        <h2>Perguntas</h2>
+        <hr>
+        
+            <div class="row">
+                <div class="col-xs-12">            
+                    <a href="/perguntas/perguntar"><button type="button" class="btn btn-primary" style="float: right;">Nova Pergunta</button></a>
+                </div>
+            </div>
+        
+        <% perguntas.forEach(pergunta => { %>
+
+            <br>
+            <div class="card">
+
+                <div class="card-body">
+                    <h4><%= pergunta.titulo %></h4>
+                    <hr>
+                    <label><%= pergunta.descricao %></label>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/respostas/responder/<%= pergunta.id %>"><button class="btn btn-success">Responder</button></a>
+                    <a href="/respostas/<%= pergunta.id %>"><button class="btn btn-dark" type="button" >Ver Respostas</button></a>
+                    
+                    <form action="POST" method="/perguntas/deletar"></form>
+                        <input type="hidden" value="<%= pergunta.id %>" name="id">
+                        <button class="btn btn-danger" type="submit" style="display: block; float: right; margin: 2px;">Deletar</button>
+                    </form> 
+                    <a href="/perguntas/alterar/<%= pergunta.id %>"><button class="btn btn-primary" style="display: block; float: right; margin: 2px;">Alterar</button></a>
+                </div>
+            
+            </div>
+
+        <% }) %>
+    </div>
+</body>
+
+<%- include ('partials/footer.ejs'); %>

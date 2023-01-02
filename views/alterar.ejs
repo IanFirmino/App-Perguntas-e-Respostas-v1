@@ -1,0 +1,31 @@
+<%- include ('partials/header.ejs'); %>
+
+<body>
+    <div class="container">
+        <hr>
+        <h2>Alterar Pergunta</h2>
+        <hr>
+            <br>
+            <div class="card">
+                <form method="POST" action="/perguntas/alterarPergunta">
+                    <div class="card-body">
+                        <h4>Titulo:</h4>
+                        <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="titulo" value= "<%= pergunta.titulo %>" >
+                        <hr>
+                        <h4>Descrição:</h4>
+                        <input type="text" class="form-control" id="descricao" name="descricao" aria-describedby="descricao" value= "<%= pergunta.descricao %>" >
+                    </div>
+                    <div class="card-footer">
+                        <textarea name="id" hidden> <%= pergunta.id %></textarea>
+                        <br>
+                        <button class="btn btn-primary">Alterar</button>
+                    </div>
+                </form>
+            </div>
+    
+    </div>
+</body>
+
+<%- include ('partials/footer.ejs'); %>
+
+

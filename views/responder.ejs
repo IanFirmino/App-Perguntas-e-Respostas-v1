@@ -1,0 +1,30 @@
+<%- include ('partials/header.ejs'); %>
+
+<body>
+    <div class="container">
+        <hr>
+        <h2>Pergunta</h2>
+        <hr>
+            <br>
+            <div class="card">
+                <form method="POST" action="/respostas/salvar">
+                    <div class="card-body">
+                        <h4><%= titulo %></h4>
+                        <hr>
+                        <p><%= descricao %></p>
+                    </div>
+                    <div class="card-footer">
+                        <textarea name="id" hidden> <%= id %></textarea>
+                        <textarea name="resposta" cols="150" placeholder="Responda aqui!"></textarea>
+                        <br>
+                        <a href="/respostas/salvar/"></a><button class="btn btn-primary">Responder</button>
+                    </div>
+                </form>
+            </div>
+    
+    </div>
+</body>
+
+<%- include ('partials/footer.ejs'); %>
+
+
